@@ -1,4 +1,4 @@
-#这一节我们学习如何编写一段网站程式（网站程式必须24h运行，否则一旦停掉就无法登录网站）
+#这一节首先我们学习如何编写一段网站程式（在上传云端之前，网站程式必须24h运行，否则一旦停掉就无法登录网站；且你只能在你自己的电脑上打开这个网站）
 from flask import Flask
 app=Flask(__name__)#__name__是Python内建的一个变数，可以用来储存目前这个程式在哪个模组下执行
 
@@ -20,20 +20,21 @@ if __name__=="__main__":#如果__name__以主程式运行
 
 
 
-#接下来我们学习如何将网站部署到云端，其流程为：
-    #第一步，建立Flask专案描述档案，其目的是为了告诉别人我们的专案是如何运作的
-        #首先要建立runtime.txt文档以描述我们使用的python环境
-        #然后再建立requirements.txt以描述我们的程式在运行时所需要的套件
-        #在Procfile文档里告诉Heroku如何执行我们的程式
-    #第二步，安装Git工具
-    #第三步，到Heroku上注册账号，并在Heroku上建立一个应用程式
-    #第四步，安装Heroku命令列套件，即Heroku CLI
-    #第五步，将专案部署到Heroku App并测试（这一步必须使用命令列模式执行）
-        #在命令列上我们会写入heroku login
-        #然后我们将会初始化专案
-            #第一个命令：git init
-            #第二个命令：heroku git:remote-a专案名称
-        #之后是更新专案（每次有新的程式需要部署到云端时，都需要运行以下三个命令）
-            #第一个命令：git add .
-            #第二个命令：git commit-m "更新讯息，这里可以自己随便写"
-            #第三个命令：git push heroku master
+#接下来我们学习如何将自己制作的网站上传至云端
+    #首先，我们需要在Visual Studio Code上编写Python Flask程式
+        #先编写主档案app.py
+        #然后创建runtime.txt，在里面输入我们使用的Python版本（即python-3.14.4）
+        #接着创建requirements.txt，在里面输入我们所使用到的套件（即Flask和gunicorn）
+        #最后创建一个Procfile，告诉render我们的程序应当如何运行
+    #然后，将编写的Python Flask程式上传至Github的代码库保存
+        #先在Github首页创建一个代码库
+        #然后在Visual Studio Code中依次执行：
+            #git init（这一步是为了初始化本地Git仓库）
+            #git add .（这一步是为了将项目文件添加到暂存区）
+            #git commit -m "First commit"
+        #接下来，需要将本地仓库连接到我们上一步中所创建的Github代码库
+            #git branch -M main
+            #git remote add origin https://github.com/"Github用户名"/"代码库名称"
+            #git push -u origin main
+        #
+    #接着，

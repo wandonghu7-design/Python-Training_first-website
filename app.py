@@ -32,6 +32,9 @@ if __name__=="__main__":#如果__name__以主程式运行
             #git init（这一步是为了初始化本地Git仓库）
             #git add .（这一步是为了将项目文件添加到暂存区）
             #git commit -m "First commit"
+        #在输入这行代码之后，会要求你输入你的用户名和邮箱（如果没要求就不用管它）:
+            #git config --global user.name "你的用户名"
+            #git config --global user.email "你的邮箱"
         #接下来，需要将本地仓库连接到我们上一步中所创建的Github代码库
             #git branch -M main
             #git remote add origin https://github.com/"Github用户名"/"代码库名称"

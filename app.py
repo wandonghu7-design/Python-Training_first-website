@@ -10,6 +10,14 @@ def home():
 def test():
     return "This is a test."
 
+@app.route("/zhairui")
+def zhairui():
+    return "蛆瑞我是你爹略略略"
+
+@app.route("/jiaxin")
+def jiaxin():
+    return "鑫哥牛逼"
+
 if __name__=="__main__":#如果__name__以主程式运行
     app.run()#那么就启动伺服器
 
@@ -39,5 +47,12 @@ if __name__=="__main__":#如果__name__以主程式运行
             #git branch -M main
             #git remote add origin https://github.com/"Github用户名"/"代码库名称"
             #git push -u origin main
-        #
-    #接着，
+    #接着，我们就可以在Render上直接将网站部署到云端了
+        #先在首页新建一个web service
+        #然后选择build and deploy from a Git repository
+        #在面板中设置我们的Render部署设置
+            #其中，Region选择离主要使用者最近的地区
+            #其中，构建命令Buid command选择pip.install -r requirements.txt
+            #其中，启动命令Start command选择gunicorn app:app --bind 0.0.0.0:$PORT
+                
+            #其中，实体配置Instance Type可以选择$0的那个
